@@ -5,6 +5,7 @@ using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using BookHaven_Bookstore_Management_System.Domain.Enums;
 
 namespace BookHaven_Bookstore_Management_System.Domain
 {
@@ -26,7 +27,7 @@ namespace BookHaven_Bookstore_Management_System.Domain
         public string Author { get; set; }
 
         [MaxLength(50)]
-        public string Genre { get; set; }
+        public Genre Genre { get; set; }
 
         [Required]
         [Column(TypeName = "decimal(10, 2)")]
@@ -35,7 +36,7 @@ namespace BookHaven_Bookstore_Management_System.Domain
         [Required]
         public int StockQuantity { get; set; }
 
-        public List<OrderItem> OrderItems { get; set; } // Navigation property
+        public List<OrderItem> OrderItems { get; set; }
         public List<SupplierOrderItem> SupplierOrderItems { get; set; }
     }
 }

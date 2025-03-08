@@ -29,8 +29,7 @@
         private void InitializeComponent()
         {
             panel1 = new Panel();
-            panel2 = new Panel();
-            label1 = new Label();
+            staffPanelInject = new Panel();
             flowLayoutPanel1 = new FlowLayoutPanel();
             panel3 = new Panel();
             button1 = new Button();
@@ -44,38 +43,30 @@
             button9 = new Button();
             button10 = new Button();
             button11 = new Button();
+            panel2 = new Panel();
+            label1 = new Label();
             panel1.SuspendLayout();
-            panel2.SuspendLayout();
             flowLayoutPanel1.SuspendLayout();
             panel3.SuspendLayout();
+            panel2.SuspendLayout();
             SuspendLayout();
             // 
             // panel1
             // 
             panel1.BackColor = SystemColors.ScrollBar;
+            panel1.Controls.Add(staffPanelInject);
             panel1.Controls.Add(flowLayoutPanel1);
             panel1.Location = new Point(-1, 1);
             panel1.Name = "panel1";
             panel1.Size = new Size(984, 524);
             panel1.TabIndex = 0;
             // 
-            // panel2
+            // staffPanelInject
             // 
-            panel2.Controls.Add(label1);
-            panel2.Location = new Point(2, 1);
-            panel2.Name = "panel2";
-            panel2.Size = new Size(978, 34);
-            panel2.TabIndex = 0;
-            // 
-            // label1
-            // 
-            label1.AutoSize = true;
-            label1.Font = new Font("Segoe UI", 15F, FontStyle.Bold);
-            label1.Location = new Point(4, 2);
-            label1.Name = "label1";
-            label1.Size = new Size(186, 28);
-            label1.TabIndex = 0;
-            label1.Text = "BookHaven - Staff";
+            staffPanelInject.Location = new Point(206, 40);
+            staffPanelInject.Name = "staffPanelInject";
+            staffPanelInject.Size = new Size(787, 481);
+            staffPanelInject.TabIndex = 1;
             // 
             // flowLayoutPanel1
             // 
@@ -113,6 +104,7 @@
             button1.TabIndex = 0;
             button1.Text = "Dashboard";
             button1.UseVisualStyleBackColor = true;
+            button1.Click += button1_Click;
             // 
             // button2
             // 
@@ -121,7 +113,7 @@
             button2.Name = "button2";
             button2.Size = new Size(194, 35);
             button2.TabIndex = 1;
-            button2.Text = "Dashboard";
+            button2.Text = "Orders";
             button2.UseVisualStyleBackColor = true;
             // 
             // button3
@@ -131,8 +123,9 @@
             button3.Name = "button3";
             button3.Size = new Size(194, 35);
             button3.TabIndex = 2;
-            button3.Text = "Dashboard";
+            button3.Text = "Customers";
             button3.UseVisualStyleBackColor = true;
+            button3.Click += button3_Click;
             // 
             // button4
             // 
@@ -141,8 +134,9 @@
             button4.Name = "button4";
             button4.Size = new Size(194, 35);
             button4.TabIndex = 3;
-            button4.Text = "Dashboard";
+            button4.Text = "Inventory";
             button4.UseVisualStyleBackColor = true;
+            button4.Click += button4_Click;
             // 
             // button5
             // 
@@ -214,22 +208,39 @@
             button11.Text = "Dashboard";
             button11.UseVisualStyleBackColor = true;
             // 
+            // panel2
+            // 
+            panel2.Controls.Add(label1);
+            panel2.Location = new Point(2, 1);
+            panel2.Name = "panel2";
+            panel2.Size = new Size(978, 34);
+            panel2.TabIndex = 0;
+            // 
+            // label1
+            // 
+            label1.AutoSize = true;
+            label1.Font = new Font("Segoe UI", 15F, FontStyle.Bold);
+            label1.Location = new Point(4, 2);
+            label1.Name = "label1";
+            label1.Size = new Size(186, 28);
+            label1.TabIndex = 0;
+            label1.Text = "BookHaven - Staff";
+            // 
             // StaffHome
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(980, 525);
+            ClientSize = new Size(990, 525);
             Controls.Add(panel2);
             Controls.Add(panel1);
             Name = "StaffHome";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "StaffHome";
-            Load += StaffHome_Load;
             panel1.ResumeLayout(false);
-            panel2.ResumeLayout(false);
-            panel2.PerformLayout();
             flowLayoutPanel1.ResumeLayout(false);
             panel3.ResumeLayout(false);
+            panel2.ResumeLayout(false);
+            panel2.PerformLayout();
             ResumeLayout(false);
         }
 
@@ -251,5 +262,6 @@
         private Button button9;
         private Button button10;
         private Button button11;
+        private Panel staffPanelInject;
     }
 }

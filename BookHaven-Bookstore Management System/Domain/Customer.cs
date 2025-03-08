@@ -19,10 +19,13 @@ namespace BookHaven_Bookstore_Management_System.Domain
         [Required]
         [MaxLength(50)]
         public string LastName { get; set; }
+        [Required]
+        [MaxLength(50)]
+        public string Email { get; set; }
+        [Required]
+        [MaxLength(10)]
+        public string PhoneNumber { get; set; }
 
-        [MaxLength(255)]
-        public string ContactInfo { get; set; }
-
-        public List<Order> Orders { get; set; } // Navigation property
+        public List<Order> Orders { get; set; } 
     }
 }

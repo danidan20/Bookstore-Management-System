@@ -9,25 +9,28 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using BookHaven_Bookstore_Management_System.Domain;
 using BookHaven_Bookstore_Management_System.Repository.Interfaces;
+using BookHaven_Bookstore_Management_System.Services.interfaces;
 using BookHaven_Bookstore_Management_System.Utils;
 using BookHaven_Bookstore_Management_System.View.Admin;
 using BookHaven_Bookstore_Management_System.View.Staff;
+using Microsoft.Extensions.DependencyInjection;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
 namespace BookHaven_Bookstore_Management_System.View
 {
     public partial class Login : Form
     {
-        private readonly IAuthRepository _authRepository;
-        public Login(IAuthRepository authRepository)
+        private readonly IAuthService _authService;
+        private readonly IServiceProvider _serviceProvider;
+        public Login(IAuthService authService, IServiceProvider serviceProvider)
         {
             InitializeComponent();
-            _authRepository = authRepository;
+            _authService = authService;
+            _serviceProvider = serviceProvider;
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
-
             String username = txtUsername.Text.Trim();
             String password = HashPassword.Hashing(txtPassword.Text.Trim());
             if (string.IsNullOrEmpty(username) || string.IsNullOrEmpty(txtPassword.Text.Trim()))
@@ -36,7 +39,7 @@ namespace BookHaven_Bookstore_Management_System.View
                 return;
             }
 
-                User user = _authRepository.AuthenticateUser(username, password);
+                User user = _authService.AuthenticateUser(username, password);
             if (user != null)
             {
                 if (user.Role == Role.ADMIN)
@@ -49,7 +52,7 @@ namespace BookHaven_Bookstore_Management_System.View
                 else if (user.Role == Role.STAFF)
                 {
                     SessionManager.LoggedInUser = user;
-                    StaffHome staffView = new StaffHome();
+                    StaffHome staffView = _serviceProvider.GetRequiredService<StaffHome>();
                     staffView.Show();
                     this.Hide();
                 }

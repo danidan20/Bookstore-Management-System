@@ -14,8 +14,8 @@ namespace BookHaven_Bookstore_Management_System.Utils
         public BookHavenDbContext(DbContextOptions<BookHavenDbContext> options) : base(options) { }
 
         public DbSet<User> Users { get; set; }
-
-        // Add other DbSet properties for your entities (Books, Customers, etc.)
+        public DbSet<Customer> Customers { get; set; }
+        public DbSet<Book> Books { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
