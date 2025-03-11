@@ -40,6 +40,20 @@ namespace BookHaven_Bookstore_Management_System.Utils
                 context.Users.Add(adminUser);
             }
 
+            // Store Admin
+            if (!context.Users.Any(u => u.Username == "BH_Store"))
+            {
+                var adminUser = new User
+                {
+                    Username = "BH_Store",
+                    PasswordHash = HashPassword.Hashing("store"),
+                    Role = Role.STORE_ADMIN,
+                    RealName = "BookHaven Store",
+                    Email = "bh_store@gmail.com"
+                };
+                context.Users.Add(adminUser);
+            }
+
             // Staff User
             if (!context.Users.Any(u => u.Username == "BH_Staff"))
             {

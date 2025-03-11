@@ -1,6 +1,6 @@
-﻿namespace BookHaven_Bookstore_Management_System.View.Staff
+﻿namespace BookHaven_Bookstore_Management_System.View.CommonModules
 {
-    partial class StaffBook
+    partial class CommonModuleBook
     {
         /// <summary>
         /// Required designer variable.
@@ -54,6 +54,7 @@
             cus_search = new Button();
             panel3 = new Panel();
             dataGridViewBooks = new DataGridView();
+            button1 = new Button();
             panel2.SuspendLayout();
             panel1.SuspendLayout();
             panel4.SuspendLayout();
@@ -66,7 +67,7 @@
             btn_clear.Font = new Font("Segoe UI", 10F, FontStyle.Bold);
             btn_clear.Location = new Point(7, 392);
             btn_clear.Name = "btn_clear";
-            btn_clear.Size = new Size(285, 31);
+            btn_clear.Size = new Size(137, 31);
             btn_clear.TabIndex = 16;
             btn_clear.Text = "Clear";
             btn_clear.UseVisualStyleBackColor = true;
@@ -166,6 +167,7 @@
             // panel2
             // 
             panel2.BackColor = SystemColors.ButtonShadow;
+            panel2.Controls.Add(button1);
             panel2.Controls.Add(comboGenre);
             panel2.Controls.Add(txtPrice);
             panel2.Controls.Add(label8);
@@ -317,14 +319,26 @@
             dataGridViewBooks.Size = new Size(430, 381);
             dataGridViewBooks.TabIndex = 0;
             // 
-            // StaffInventory
+            // button1
+            // 
+            button1.Font = new Font("Segoe UI", 10F, FontStyle.Bold);
+            button1.Location = new Point(150, 392);
+            button1.Name = "button1";
+            button1.Size = new Size(141, 31);
+            button1.TabIndex = 22;
+            button1.Text = "Refresh";
+            button1.UseVisualStyleBackColor = true;
+            button1.Click += button1_Click;
+            // 
+            // StaffBook
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(800, 450);
             Controls.Add(panel1);
-            Name = "StaffInventory";
+            Name = "StaffBook";
             Text = "StaffInventory";
+            Load += StaffBook_Load;
             panel2.ResumeLayout(false);
             panel2.PerformLayout();
             panel1.ResumeLayout(false);
@@ -363,5 +377,6 @@
         private TextBox txtPrice;
         private Label label8;
         private ComboBox comboGenre;
+        private Button button1;
     }
 }

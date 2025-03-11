@@ -17,13 +17,33 @@
   </ItemGroup>
 
   <ItemGroup>
-    <None Update="appsettings.json">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </None>
+    <Compile Update="View\Admin\AdminHome.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="View\CommonModules\CommonModuleCustomers.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="View\Admin\AdminOrders.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="View\Admin\AdminOrderUpdateForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="View\Staff\OrderUpdateForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="View\StoreAdmin\StoreAdminHome.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="View\CommonModules\SupplierManagementForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="DTO\Request\" />
+    <None Update="appsettings.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
   </ItemGroup>
 
 </Project>

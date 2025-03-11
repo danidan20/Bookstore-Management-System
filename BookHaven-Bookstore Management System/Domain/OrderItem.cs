@@ -16,12 +16,12 @@ namespace BookHaven_Bookstore_Management_System.Domain
         [ForeignKey("Order")]
         public int OrderID { get; set; }
 
-        public Order Order { get; set; } // Navigation property
+        public Order Order { get; set; } 
 
         [ForeignKey("Book")]
         public int BookID { get; set; }
 
-        public Book Book { get; set; } // Navigation property
+        public Book Book { get; set; } 
 
         [Required]
         public int Quantity { get; set; }

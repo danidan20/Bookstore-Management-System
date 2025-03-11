@@ -13,6 +13,7 @@ using BookHaven_Bookstore_Management_System.Services.interfaces;
 using BookHaven_Bookstore_Management_System.Utils;
 using BookHaven_Bookstore_Management_System.View.Admin;
 using BookHaven_Bookstore_Management_System.View.Staff;
+using BookHaven_Bookstore_Management_System.View.StoreAdmin;
 using Microsoft.Extensions.DependencyInjection;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
@@ -45,7 +46,7 @@ namespace BookHaven_Bookstore_Management_System.View
                 if (user.Role == Role.ADMIN)
                 {
                     SessionManager.LoggedInUser = user;
-                    AdminHome adminView = new AdminHome();
+                    AdminHome adminView = _serviceProvider.GetRequiredService<AdminHome>();
                     adminView.Show();
                     this.Hide();
                 }
@@ -56,17 +57,18 @@ namespace BookHaven_Bookstore_Management_System.View
                     staffView.Show();
                     this.Hide();
                 }
+                else if (user.Role == Role.STORE_ADMIN)
+                {
+                    SessionManager.LoggedInUser = user;
+                    StoreAdminHome storeAdminView = _serviceProvider.GetRequiredService<StoreAdminHome>();
+                    storeAdminView.Show();
+                    this.Hide();
+                }
                 else
                 {
                     MessageBox.Show("Unknown user role.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     return;
                 }
-
-                //if (SessionManager.LoggedInUser != null)
-                //{
-                //    // Access user data
-                //    Console.WriteLine(SessionManager.LoggedInUser.Username);
-                //}
             }
             else
             {

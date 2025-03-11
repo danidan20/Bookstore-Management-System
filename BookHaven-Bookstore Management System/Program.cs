@@ -9,6 +9,9 @@ using BookHaven_Bookstore_Management_System.Utils;
 using BookHaven_Bookstore_Management_System.Services.impl;
 using BookHaven_Bookstore_Management_System.Services.interfaces;
 using BookHaven_Bookstore_Management_System.View.Staff;
+using BookHaven_Bookstore_Management_System.View.Admin;
+using BookHaven_Bookstore_Management_System.View.StoreAdmin;
+using BookHaven_Bookstore_Management_System.View.CommonModules;
 
 namespace BookHaven_Bookstore_Management_System
 {
@@ -31,18 +34,39 @@ namespace BookHaven_Bookstore_Management_System
                     services.AddScoped<IAuthService, AuthService>();
                     services.AddScoped<ICustomerService, CustomerService>();
                     services.AddScoped<IBookService, BookService>();
+                    services.AddScoped<IOrderService, OrderService>();
+                    services.AddScoped<IOrderItemService, OrderItemService>();
+                    services.AddScoped<ISupplierService, SupplierService>();
+                    services.AddScoped<ISupplierOrderService, SupplierOrderService>();
+                    services.AddScoped<ISupplierOrderItemService, SupplierOrderItemService>();
 
                     // Repo service Dependency Injections
                     services.AddScoped<IUserRepository, UserRepositoryImpl>();
                     services.AddScoped<IAuthRepository, AuthRepository>();
                     services.AddScoped<ICustomerRepository, CustomerRepository>();
                     services.AddScoped<IBookRepository, BookRepository>();
+                    services.AddScoped<IOrderItemRepository, OrderItemRepository>();
+                    services.AddScoped<IOrderRepository, OrderRepository>();
+                    services.AddScoped<ISupplierRepository, SupplierRepository>();
+                    services.AddScoped<ISupplierOrderRepository, SupplierOrderRepository>();
+                    services.AddScoped<ISupplierOrderItemRepository, SupplierOrderItemRepository>();
 
                     // Form registrations
-                    services.AddScoped<Login>();
-                    services.AddScoped<StaffHome>();
-                    services.AddScoped<StaffCustomers>();
-                    services.AddScoped<StaffBook>();
+                    services.AddTransient<CommonModuleCustomers>();
+                    services.AddTransient<StaffHome>();
+                    services.AddTransient<CommonModuleBook>();
+                    services.AddTransient<Pos>();
+                    services.AddTransient<StaffOrders>();
+
+                    services.AddTransient<AdminHome>();
+                    services.AddTransient<AdminOrders>();
+                    services.AddTransient<AdminOrderUpdateForm>();
+                    services.AddTransient< SupplierManagementForm > ();
+                    services.AddTransient<SupplierOrdersViewForm>();
+                    services.AddTransient<UpdateOrderDetailsForm>();
+
+                    services.AddTransient<StoreAdminHome>();
+                    services.AddTransient<Login>();
                 })
                 .Build();
 

@@ -9,9 +9,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Windows.Forms;
 
-namespace BookHaven_Bookstore_Management_System.View.Staff
+namespace BookHaven_Bookstore_Management_System.View.Admin
 {
-    public partial class StaffOrders : Form
+    public partial class AdminOrders : Form
     {
         private readonly IOrderService _orderService;
         private readonly ICustomerService _customerService;
@@ -19,7 +19,7 @@ namespace BookHaven_Bookstore_Management_System.View.Staff
         private readonly IOrderItemService _orderItemService;
         private List<Order> _allOrders;
 
-        public StaffOrders(IOrderItemService orderItemService, IOrderService orderService, IBookService bookService, ICustomerService customerService)
+        public AdminOrders(IOrderItemService orderItemService, IOrderService orderService, IBookService bookService, ICustomerService customerService)
         {
             InitializeComponent();
             _orderService = orderService;
@@ -101,7 +101,7 @@ namespace BookHaven_Bookstore_Management_System.View.Staff
         {
             try
             {
-                OrderUpdateForm updateForm = new OrderUpdateForm(_orderService, _bookService, _customerService, _orderItemService, order); updateForm.ShowDialog(); LoadOrders();
+                AdminOrderUpdateForm updateForm = new AdminOrderUpdateForm(_orderService, _bookService, _customerService, _orderItemService, order); updateForm.ShowDialog(); LoadOrders();
             }
             catch (Exception ex) { ShowErrorMessage($"Error showing order details: {ex.Message}"); }
         }

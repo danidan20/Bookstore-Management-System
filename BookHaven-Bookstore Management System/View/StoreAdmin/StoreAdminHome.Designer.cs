@@ -1,6 +1,6 @@
-﻿namespace BookHaven_Bookstore_Management_System.View.Staff
+﻿namespace BookHaven_Bookstore_Management_System.View.StoreAdmin
 {
-    partial class StaffHome
+    partial class StoreAdminHome
     {
         /// <summary>
         /// Required designer variable.
@@ -33,11 +33,10 @@
             flowLayoutPanel1 = new FlowLayoutPanel();
             panel3 = new Panel();
             button1 = new Button();
-            button2 = new Button();
             button3 = new Button();
             button4 = new Button();
-            button5 = new Button();
-            button6 = new Button();
+            button10 = new Button();
+            button11 = new Button();
             panel2 = new Panel();
             label1 = new Label();
             panel1.SuspendLayout();
@@ -67,11 +66,10 @@
             // 
             flowLayoutPanel1.BackColor = SystemColors.Menu;
             flowLayoutPanel1.Controls.Add(panel3);
-            flowLayoutPanel1.Controls.Add(button2);
             flowLayoutPanel1.Controls.Add(button3);
             flowLayoutPanel1.Controls.Add(button4);
-            flowLayoutPanel1.Controls.Add(button5);
-            flowLayoutPanel1.Controls.Add(button6);
+            flowLayoutPanel1.Controls.Add(button10);
+            flowLayoutPanel1.Controls.Add(button11);
             flowLayoutPanel1.Location = new Point(3, 37);
             flowLayoutPanel1.Name = "flowLayoutPanel1";
             flowLayoutPanel1.Size = new Size(200, 484);
@@ -96,32 +94,21 @@
             button1.UseVisualStyleBackColor = true;
             button1.Click += button1_Click;
             // 
-            // button2
-            // 
-            button2.Font = new Font("Segoe UI", 13F, FontStyle.Bold);
-            button2.Location = new Point(3, 50);
-            button2.Name = "button2";
-            button2.Size = new Size(194, 35);
-            button2.TabIndex = 1;
-            button2.Text = "Orders";
-            button2.UseVisualStyleBackColor = true;
-            button2.Click += button2_Click;
-            // 
             // button3
             // 
             button3.Font = new Font("Segoe UI", 13F, FontStyle.Bold);
-            button3.Location = new Point(3, 91);
+            button3.Location = new Point(3, 50);
             button3.Name = "button3";
             button3.Size = new Size(194, 35);
             button3.TabIndex = 2;
-            button3.Text = "Customers";
+            button3.Text = "Supplier Orders";
             button3.UseVisualStyleBackColor = true;
             button3.Click += button3_Click;
             // 
             // button4
             // 
             button4.Font = new Font("Segoe UI", 13F, FontStyle.Bold);
-            button4.Location = new Point(3, 132);
+            button4.Location = new Point(3, 91);
             button4.Name = "button4";
             button4.Size = new Size(194, 35);
             button4.TabIndex = 3;
@@ -129,27 +116,27 @@
             button4.UseVisualStyleBackColor = true;
             button4.Click += button4_Click;
             // 
-            // button5
+            // button10
             // 
-            button5.Font = new Font("Segoe UI", 13F, FontStyle.Bold);
-            button5.Location = new Point(3, 173);
-            button5.Name = "button5";
-            button5.Size = new Size(194, 35);
-            button5.TabIndex = 4;
-            button5.Text = "POS";
-            button5.UseVisualStyleBackColor = true;
-            button5.Click += button5_Click;
+            button10.Font = new Font("Segoe UI", 13F, FontStyle.Bold);
+            button10.Location = new Point(3, 132);
+            button10.Name = "button10";
+            button10.Size = new Size(194, 35);
+            button10.TabIndex = 9;
+            button10.Text = "Supplier";
+            button10.UseVisualStyleBackColor = true;
+            button10.Click += button10_Click;
             // 
-            // button6
+            // button11
             // 
-            button6.Font = new Font("Segoe UI", 13F, FontStyle.Bold);
-            button6.Location = new Point(3, 214);
-            button6.Name = "button6";
-            button6.Size = new Size(194, 35);
-            button6.TabIndex = 5;
-            button6.Text = "Log out";
-            button6.UseVisualStyleBackColor = true;
-            button6.Click += button6_Click;
+            button11.Font = new Font("Segoe UI", 13F, FontStyle.Bold);
+            button11.Location = new Point(3, 173);
+            button11.Name = "button11";
+            button11.Size = new Size(194, 35);
+            button11.TabIndex = 10;
+            button11.Text = "Log Out";
+            button11.UseVisualStyleBackColor = true;
+            button11.Click += button11_Click;
             // 
             // panel2
             // 
@@ -165,18 +152,18 @@
             label1.Font = new Font("Segoe UI", 15F, FontStyle.Bold);
             label1.Location = new Point(4, 2);
             label1.Name = "label1";
-            label1.Size = new Size(186, 28);
+            label1.Size = new Size(258, 28);
             label1.TabIndex = 0;
-            label1.Text = "BookHaven - Staff";
+            label1.Text = "BookHaven - Store Admin";
             // 
-            // StaffHome
+            // StoreAdminHome
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(990, 525);
             Controls.Add(panel2);
             Controls.Add(panel1);
-            Name = "StaffHome";
+            Name = "StoreAdminHome";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "StaffHome";
             panel1.ResumeLayout(false);
@@ -195,11 +182,10 @@
         private FlowLayoutPanel flowLayoutPanel1;
         private Panel panel3;
         private Button button1;
-        private Button button2;
         private Button button3;
         private Button button4;
-        private Button button5;
-        private Button button6;
+        private Button button10;
+        private Button button11;
         private Panel staffPanelInject;
     }
 }

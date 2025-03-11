@@ -4,6 +4,7 @@ using System.Data.SqlTypes;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Microsoft.EntityFrameworkCore;
 using BookHaven_Bookstore_Management_System.Domain; // Assuming your Book model is in this namespace
 using BookHaven_Bookstore_Management_System.Repository.Interfaces; // Assuming your IBookRepository is in this namespace
 using BookHaven_Bookstore_Management_System.Utils; // Assuming your BookHavenDbContext is in this namespace
@@ -18,6 +19,12 @@ namespace BookHaven_Bookstore_Management_System.Repository.Implmentation
         {
             _context = context;
         }
+        public void Update(Book book)
+        {
+            _context.Entry(book).State = EntityState.Modified;
+            _context.SaveChanges();
+        }
+
 
         public Book GetBookById(int bookId)
         {

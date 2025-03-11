@@ -4,12 +4,11 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace BookHaven_Bookstore_Management_System.Domain
+namespace BookHaven_Bookstore_Management_System.Domain.Enums
 {
-    public enum Role
+    public enum PaymentStatus
     {
-        ADMIN,
-        STAFF,
-        STORE_ADMIN
+        Pending,
+        Paid
     }
 }

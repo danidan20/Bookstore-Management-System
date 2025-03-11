@@ -26,6 +26,11 @@ namespace BookHaven_Bookstore_Management_System.Domain
         [MaxLength(10)]
         public string PhoneNumber { get; set; }
 
-        public List<Order> Orders { get; set; } 
+        public List<Order> Orders { get; set; }
+
+        public string FullName
+        {
+            get { return $"{FirstName} {LastName}"; }
+        }
     }
 }

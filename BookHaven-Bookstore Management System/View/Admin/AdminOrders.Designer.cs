@@ -3,9 +3,9 @@ using BookHaven_Bookstore_Management_System.Domain;
 using BookHaven_Bookstore_Management_System.Services.impl;
 using BookHaven_Bookstore_Management_System.Services.interfaces;
 
-namespace BookHaven_Bookstore_Management_System.View.Staff
+namespace BookHaven_Bookstore_Management_System.View.Admin
 {
-    partial class StaffOrders
+    partial class AdminOrders
     {
         /// <summary>
         /// Required designer variable.
@@ -203,7 +203,7 @@ namespace BookHaven_Bookstore_Management_System.View.Staff
         {
             try
             {
-                OrderUpdateForm updateForm = new OrderUpdateForm(_orderService, _bookService, _customerService, _orderItemService, order);
+                AdminOrderUpdateForm updateForm = new AdminOrderUpdateForm(_orderService, _bookService, _customerService, _orderItemService, order);
                 updateForm.ShowDialog();
                 dataGridViewOrders.ClearSelection();
                 LoadOrders();

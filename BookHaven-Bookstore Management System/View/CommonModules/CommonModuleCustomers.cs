@@ -11,13 +11,13 @@ using BookHaven_Bookstore_Management_System.Domain;
 using BookHaven_Bookstore_Management_System.Repository.Interfaces;
 using BookHaven_Bookstore_Management_System.Services.interfaces;
 
-namespace BookHaven_Bookstore_Management_System.View.Staff
+namespace BookHaven_Bookstore_Management_System.View.CommonModules
 {
-    public partial class StaffCustomers : Form
+    public partial class CommonModuleCustomers : Form
     {
         private readonly ICustomerService _customerService;
 
-        public StaffCustomers(ICustomerService customerService)
+        public CommonModuleCustomers(ICustomerService customerService)
         {
             InitializeComponent();
             _customerService = customerService;

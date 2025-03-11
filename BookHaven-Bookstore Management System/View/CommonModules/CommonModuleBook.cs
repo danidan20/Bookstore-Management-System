@@ -6,13 +6,13 @@ using BookHaven_Bookstore_Management_System.Domain;
 using BookHaven_Bookstore_Management_System.Domain.Enums;
 using BookHaven_Bookstore_Management_System.Services.interfaces;
 
-namespace BookHaven_Bookstore_Management_System.View.Staff
+namespace BookHaven_Bookstore_Management_System.View.CommonModules
 {
-    public partial class StaffBook : Form
+    public partial class CommonModuleBook : Form
     {
         private readonly IBookService _bookService;
 
-        public StaffBook(IBookService bookService)
+        public CommonModuleBook(IBookService bookService)
         {
             InitializeComponent();
             _bookService = bookService;
@@ -128,7 +128,7 @@ namespace BookHaven_Bookstore_Management_System.View.Staff
                 Book updatedBook = new Book
                 {
                     BookID = bookId,
-                   Title = title,
+                    Title = title,
                     Author = author,
                     ISBN = isbn,
                     StockQuantity = stockQuantity,
@@ -298,6 +298,16 @@ namespace BookHaven_Bookstore_Management_System.View.Staff
         private void btn_clear_Click_1(object sender, EventArgs e)
         {
             ClearTextBoxes();
+        }
+
+        private void StaffBook_Load(object sender, EventArgs e)
+        {
+            LoadBooks();
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            LoadBooks();
         }
     }
 }

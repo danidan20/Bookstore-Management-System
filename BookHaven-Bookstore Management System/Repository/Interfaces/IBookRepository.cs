@@ -10,6 +10,7 @@ namespace BookHaven_Bookstore_Management_System.Repository.Interfaces
     public interface IBookRepository
     {
         Book GetBookById(int bookId);
+        void Update(Book book);
         IEnumerable<Book> GetAllBooks();
         void AddBook(Book book);
         void UpdateBook(Book book);
