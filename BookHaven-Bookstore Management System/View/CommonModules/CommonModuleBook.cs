@@ -18,6 +18,7 @@ namespace BookHaven_Bookstore_Management_System.View.CommonModules
             _bookService = bookService;
             InitializeData();
             txtBookId.Enabled = false;
+            txtQuantity.Enabled = false;
         }
 
         private void InitializeData()
@@ -33,28 +34,65 @@ namespace BookHaven_Bookstore_Management_System.View.CommonModules
             comboGenre.DisplayMember = "ToString";
         }
 
-        private void LoadBooks()
+       private void LoadBooks()
+{
+    try
+    {
+        var books = _bookService.GetAllBooks();
+        var bookData = books.Select(b => new
         {
-            try
+            b.BookID,
+            b.ISBN,
+            b.Title,
+            b.Author,
+            Genre = b.Genre.ToString(),
+            b.Price,
+            b.StockQuantity
+        }).ToList();
+
+        dataGridViewBooks.DataSource = bookData;
+        ConfigureDataGridViewColumns();
+        ConfigureStockAlertColumn(); // Add this line
+        dataGridViewBooks.Refresh();
+        Refresh();
+    }
+    catch (Exception ex)
+    {
+        ShowErrorMessage("Error loading books", ex);
+    }
+}
+
+        private void ConfigureStockAlertColumn()
+        {
+            DataGridViewColumn stockAlertColumn = new DataGridViewTextBoxColumn();
+            stockAlertColumn.Name = "StockAlert";
+            stockAlertColumn.HeaderText = "Stock Alert";
+            dataGridViewBooks.Columns.Add(stockAlertColumn);
+
+            dataGridViewBooks.CellFormatting += DataGridViewBooks_CellFormatting;
+        }
+
+        private void DataGridViewBooks_CellFormatting(object sender, DataGridViewCellFormattingEventArgs e)
+        {
+            if (e.ColumnIndex == dataGridViewBooks.Columns["StockAlert"].Index)
             {
-                var books = _bookService.GetAllBooks();
-                dataGridViewBooks.DataSource = books.Select(b => new
+                int stockQuantity = Convert.ToInt32(dataGridViewBooks.Rows[e.RowIndex].Cells["StockQuantity"].Value);
+
+                if (stockQuantity < 10)
                 {
-                    b.BookID,
-                    b.ISBN,
-                    b.Title,
-                    b.Author,
-                    Genre = b.Genre.ToString(),
-                    b.Price,
-                    b.StockQuantity
-                }).ToList();
-                ConfigureDataGridViewColumns();
-                dataGridViewBooks.Refresh();
-                Refresh();
-            }
-            catch (Exception ex)
-            {
-                ShowErrorMessage("Error loading books", ex);
+                    e.CellStyle.BackColor = Color.Red;
+                    e.Value = "Low Stock";
+                }
+                else if (stockQuantity < 20)
+                {
+                    e.CellStyle.BackColor = Color.Orange;
+                    e.Value = "Medium Stock";
+                }
+                else
+                {
+                    e.CellStyle.BackColor = Color.White; 
+                    e.Value = "Normal";
+                }
             }
         }
 
@@ -255,7 +293,7 @@ namespace BookHaven_Bookstore_Management_System.View.CommonModules
         private bool ValidateInput()
         {
             if (string.IsNullOrWhiteSpace(txtTitle.Text) || string.IsNullOrWhiteSpace(txtAuthor.Text) ||
-                string.IsNullOrWhiteSpace(txtISBN.Text) || string.IsNullOrWhiteSpace(txtQuantity.Text) ||
+                string.IsNullOrWhiteSpace(txtISBN.Text) ||
                 comboGenre.SelectedItem == null || string.IsNullOrWhiteSpace(txtPrice.Text))
             {
                 ShowInformationMessage("Please fill in all book details.");

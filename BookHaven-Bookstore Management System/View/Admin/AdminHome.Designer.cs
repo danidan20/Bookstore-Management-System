@@ -40,6 +40,7 @@
             button11 = new Button();
             panel2 = new Panel();
             label1 = new Label();
+            button5 = new Button();
             panel1.SuspendLayout();
             flowLayoutPanel1.SuspendLayout();
             panel3.SuspendLayout();
@@ -66,8 +67,9 @@
             // flowLayoutPanel1
             // 
             flowLayoutPanel1.BackColor = SystemColors.Menu;
+            flowLayoutPanel1.Controls.Add(button1);
+            flowLayoutPanel1.Controls.Add(button5);
             flowLayoutPanel1.Controls.Add(panel3);
-            flowLayoutPanel1.Controls.Add(button2);
             flowLayoutPanel1.Controls.Add(button3);
             flowLayoutPanel1.Controls.Add(button4);
             flowLayoutPanel1.Controls.Add(button10);
@@ -79,8 +81,8 @@
             // 
             // panel3
             // 
-            panel3.Controls.Add(button1);
-            panel3.Location = new Point(3, 3);
+            panel3.Controls.Add(button2);
+            panel3.Location = new Point(3, 85);
             panel3.Name = "panel3";
             panel3.Size = new Size(197, 41);
             panel3.TabIndex = 1;
@@ -88,7 +90,7 @@
             // button1
             // 
             button1.Font = new Font("Segoe UI", 13F, FontStyle.Bold);
-            button1.Location = new Point(0, 3);
+            button1.Location = new Point(3, 3);
             button1.Name = "button1";
             button1.Size = new Size(194, 35);
             button1.TabIndex = 0;
@@ -99,7 +101,7 @@
             // button2
             // 
             button2.Font = new Font("Segoe UI", 13F, FontStyle.Bold);
-            button2.Location = new Point(3, 50);
+            button2.Location = new Point(0, 3);
             button2.Name = "button2";
             button2.Size = new Size(194, 35);
             button2.TabIndex = 1;
@@ -110,7 +112,7 @@
             // button3
             // 
             button3.Font = new Font("Segoe UI", 13F, FontStyle.Bold);
-            button3.Location = new Point(3, 91);
+            button3.Location = new Point(3, 132);
             button3.Name = "button3";
             button3.Size = new Size(194, 35);
             button3.TabIndex = 2;
@@ -121,7 +123,7 @@
             // button4
             // 
             button4.Font = new Font("Segoe UI", 13F, FontStyle.Bold);
-            button4.Location = new Point(3, 132);
+            button4.Location = new Point(3, 173);
             button4.Name = "button4";
             button4.Size = new Size(194, 35);
             button4.TabIndex = 3;
@@ -132,7 +134,7 @@
             // button10
             // 
             button10.Font = new Font("Segoe UI", 13F, FontStyle.Bold);
-            button10.Location = new Point(3, 173);
+            button10.Location = new Point(3, 214);
             button10.Name = "button10";
             button10.Size = new Size(194, 35);
             button10.TabIndex = 9;
@@ -143,7 +145,7 @@
             // button11
             // 
             button11.Font = new Font("Segoe UI", 13F, FontStyle.Bold);
-            button11.Location = new Point(3, 214);
+            button11.Location = new Point(3, 255);
             button11.Name = "button11";
             button11.Size = new Size(194, 35);
             button11.TabIndex = 10;
@@ -168,6 +170,17 @@
             label1.Size = new Size(202, 28);
             label1.TabIndex = 0;
             label1.Text = "BookHaven - Admin";
+            // 
+            // button5
+            // 
+            button5.Font = new Font("Segoe UI", 13F, FontStyle.Bold);
+            button5.Location = new Point(3, 44);
+            button5.Name = "button5";
+            button5.Size = new Size(194, 35);
+            button5.TabIndex = 11;
+            button5.Text = "User Management";
+            button5.UseVisualStyleBackColor = true;
+            button5.Click += button5_Click_1;
             // 
             // AdminHome
             // 
@@ -201,5 +214,6 @@
         private Button button10;
         private Button button11;
         private Panel staffPanelInject;
+        private Button button5;
     }
 }

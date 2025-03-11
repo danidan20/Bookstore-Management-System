@@ -23,6 +23,7 @@ namespace BookHaven_Bookstore_Management_System.View.StoreAdmin
         private SupplierManagementForm _supplierManagement;
         private CommonModuleBook _inventory;
         private SupplierOrdersViewForm _supplierOrdersViewForm;
+        private StoreAdminDashboard _dashboard;
 
         private readonly IServiceProvider _serviceProvider;
         public StoreAdminHome(ICustomerService customerService, IServiceProvider serviceProvider)
@@ -30,12 +31,14 @@ namespace BookHaven_Bookstore_Management_System.View.StoreAdmin
             InitializeComponent();
             this.IsMdiContainer = true;
             _serviceProvider = serviceProvider;
+            _dashboard = _serviceProvider.GetRequiredService<StoreAdminDashboard>();
+            LoadChildForm(_dashboard);
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
-            //_dashboard = _serviceProvider.GetRequiredService<StaffDashboard>();
-            //LoadChildForm(_dashboard);
+            _dashboard = _serviceProvider.GetRequiredService<StoreAdminDashboard>();
+            LoadChildForm(_dashboard);
         }
 
         private void LoadChildForm(Form childForm)

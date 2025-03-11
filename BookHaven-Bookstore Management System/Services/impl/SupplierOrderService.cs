@@ -42,7 +42,7 @@ namespace BookHaven_Bookstore_Management_System.Services.impl
                 throw new ArgumentException($"Supplier order with ID {orderId} not found.");
             }
 
-            if (order.OrderStatus != "Pending")
+            if (order.OrderStatus != "Received")
             {
                 throw new InvalidOperationException($"Supplier order with ID {orderId} is not in a 'Pending' state.");
             }

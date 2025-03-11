@@ -24,6 +24,8 @@ namespace BookHaven_Bookstore_Management_System.View.Admin
         private CommonModuleCustomers _customers;
         private CommonModuleBook _inventory;
         private AdminOrders _order;
+        private AdminDashboard _dashboard;
+        private UserManagementForm _userManagement;
 
         private readonly IServiceProvider _serviceProvider;
         public AdminHome(ICustomerService customerService, IServiceProvider serviceProvider)
@@ -31,12 +33,14 @@ namespace BookHaven_Bookstore_Management_System.View.Admin
             InitializeComponent();
             this.IsMdiContainer = true;
             _serviceProvider = serviceProvider;
+            _dashboard = _serviceProvider.GetRequiredService<AdminDashboard>();
+            LoadChildForm(_dashboard);
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
-            //_dashboard = _serviceProvider.GetRequiredService<StaffDashboard>();
-            //LoadChildForm(_dashboard);
+            _dashboard = _serviceProvider.GetRequiredService<AdminDashboard>();
+            LoadChildForm(_dashboard);
         }
 
         private void button3_Click(object sender, EventArgs e)
@@ -79,13 +83,19 @@ namespace BookHaven_Bookstore_Management_System.View.Admin
             SessionManager.LoggedInUser = null;
             Login loginForm = _serviceProvider.GetRequiredService<Login>();
             loginForm.Show();
-            this.Close(); 
+            this.Close();
         }
 
         private void button10_Click(object sender, EventArgs e)
         {
             _supplierManagement = _serviceProvider.GetRequiredService<SupplierManagementForm>();
             LoadChildForm(_supplierManagement);
+        }
+
+        private void button5_Click_1(object sender, EventArgs e)
+        {
+            _userManagement = _serviceProvider.GetRequiredService<UserManagementForm>();
+            LoadChildForm(_userManagement);
         }
     }
 }

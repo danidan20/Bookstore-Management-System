@@ -39,6 +39,7 @@ namespace BookHaven_Bookstore_Management_System
                     services.AddScoped<ISupplierService, SupplierService>();
                     services.AddScoped<ISupplierOrderService, SupplierOrderService>();
                     services.AddScoped<ISupplierOrderItemService, SupplierOrderItemService>();
+                    services.AddScoped<IUserService, UserService>();
 
                     // Repo service Dependency Injections
                     services.AddScoped<IUserRepository, UserRepositoryImpl>();
@@ -64,6 +65,10 @@ namespace BookHaven_Bookstore_Management_System
                     services.AddTransient< SupplierManagementForm > ();
                     services.AddTransient<SupplierOrdersViewForm>();
                     services.AddTransient<UpdateOrderDetailsForm>();
+                    services.AddTransient<StoreAdminDashboard> ();
+                    services.AddTransient<AdminDashboard>();
+                    services.AddTransient<UserManagementForm>();
+                    
 
                     services.AddTransient<StoreAdminHome>();
                     services.AddTransient<Login>();
