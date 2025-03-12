@@ -3,9 +3,9 @@ using BookHaven_Bookstore_Management_System.Domain;
 using BookHaven_Bookstore_Management_System.Services.impl;
 using BookHaven_Bookstore_Management_System.Services.interfaces;
 
-namespace BookHaven_Bookstore_Management_System.View.Admin
+namespace BookHaven_Bookstore_Management_System.View.CommonModules
 {
-    partial class AdminOrders
+    partial class Orders
     {
         /// <summary>
         /// Required designer variable.
@@ -34,6 +34,7 @@ namespace BookHaven_Bookstore_Management_System.View.Admin
         private void InitializeComponent()
         {
             panel1 = new Panel();
+            tbl_print = new Button();
             comPaymentStatus = new ComboBox();
             comDeliveryStatus = new ComboBox();
             btnDeleteOrder = new Button();
@@ -42,13 +43,18 @@ namespace BookHaven_Bookstore_Management_System.View.Admin
             txtSearch = new TextBox();
             btnRefresh = new Button();
             dataGridViewOrders = new DataGridView();
-            tbl_print = new Button();
+            label1 = new Label();
+            label2 = new Label();
+            label3 = new Label();
             panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dataGridViewOrders).BeginInit();
             SuspendLayout();
             // 
             // panel1
             // 
+            panel1.Controls.Add(label3);
+            panel1.Controls.Add(label2);
+            panel1.Controls.Add(label1);
             panel1.Controls.Add(tbl_print);
             panel1.Controls.Add(comPaymentStatus);
             panel1.Controls.Add(comDeliveryStatus);
@@ -63,10 +69,21 @@ namespace BookHaven_Bookstore_Management_System.View.Admin
             panel1.Size = new Size(800, 451);
             panel1.TabIndex = 0;
             // 
+            // tbl_print
+            // 
+            tbl_print.Font = new Font("Segoe UI", 12F, FontStyle.Bold);
+            tbl_print.Location = new Point(366, 8);
+            tbl_print.Name = "tbl_print";
+            tbl_print.Size = new Size(139, 31);
+            tbl_print.TabIndex = 8;
+            tbl_print.Text = "Print Reciept";
+            tbl_print.UseVisualStyleBackColor = true;
+            tbl_print.Click += tbl_print_Click;
+            // 
             // comPaymentStatus
             // 
             comPaymentStatus.FormattingEnabled = true;
-            comPaymentStatus.Location = new Point(477, 48);
+            comPaymentStatus.Location = new Point(477, 72);
             comPaymentStatus.Name = "comPaymentStatus";
             comPaymentStatus.Size = new Size(225, 23);
             comPaymentStatus.TabIndex = 7;
@@ -75,7 +92,7 @@ namespace BookHaven_Bookstore_Management_System.View.Admin
             // comDeliveryStatus
             // 
             comDeliveryStatus.FormattingEnabled = true;
-            comDeliveryStatus.Location = new Point(246, 48);
+            comDeliveryStatus.Location = new Point(246, 72);
             comDeliveryStatus.Name = "comDeliveryStatus";
             comDeliveryStatus.Size = new Size(225, 23);
             comDeliveryStatus.TabIndex = 6;
@@ -105,7 +122,7 @@ namespace BookHaven_Bookstore_Management_System.View.Admin
             // comCustomers
             // 
             comCustomers.FormattingEnabled = true;
-            comCustomers.Location = new Point(11, 48);
+            comCustomers.Location = new Point(11, 72);
             comCustomers.Name = "comCustomers";
             comCustomers.Size = new Size(229, 23);
             comCustomers.TabIndex = 3;
@@ -135,30 +152,49 @@ namespace BookHaven_Bookstore_Management_System.View.Admin
             // dataGridViewOrders
             // 
             dataGridViewOrders.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridViewOrders.Location = new Point(3, 77);
+            dataGridViewOrders.Location = new Point(3, 100);
             dataGridViewOrders.Name = "dataGridViewOrders";
-            dataGridViewOrders.Size = new Size(784, 371);
+            dataGridViewOrders.Size = new Size(784, 348);
             dataGridViewOrders.TabIndex = 0;
             dataGridViewOrders.CellMouseDoubleClick += dataGridViewOrders_CellContentDoubleClick;
             // 
-            // tbl_print
+            // label1
             // 
-            tbl_print.Font = new Font("Segoe UI", 12F, FontStyle.Bold);
-            tbl_print.Location = new Point(366, 8);
-            tbl_print.Name = "tbl_print";
-            tbl_print.Size = new Size(139, 31);
-            tbl_print.TabIndex = 8;
-            tbl_print.Text = "Print Reciept";
-            tbl_print.UseVisualStyleBackColor = true;
-            tbl_print.Click += tbl_print_Click;
+            label1.AutoSize = true;
+            label1.Font = new Font("Segoe UI", 12F, FontStyle.Bold);
+            label1.Location = new Point(13, 49);
+            label1.Name = "label1";
+            label1.Size = new Size(83, 21);
+            label1.TabIndex = 9;
+            label1.Text = "Customer";
             // 
-            // StaffOrders
+            // label2
+            // 
+            label2.AutoSize = true;
+            label2.Font = new Font("Segoe UI", 12F, FontStyle.Bold);
+            label2.Location = new Point(246, 49);
+            label2.Name = "label2";
+            label2.Size = new Size(75, 21);
+            label2.TabIndex = 10;
+            label2.Text = "Delivery";
+            // 
+            // label3
+            // 
+            label3.AutoSize = true;
+            label3.Font = new Font("Segoe UI", 12F, FontStyle.Bold);
+            label3.Location = new Point(477, 48);
+            label3.Name = "label3";
+            label3.Size = new Size(78, 21);
+            label3.TabIndex = 11;
+            label3.Text = "Payment";
+            // 
+            // Orders
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(800, 450);
             Controls.Add(panel1);
-            Name = "StaffOrders";
+            Name = "Orders";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "StaffOrders";
             panel1.ResumeLayout(false);
@@ -203,7 +239,7 @@ namespace BookHaven_Bookstore_Management_System.View.Admin
         {
             try
             {
-                AdminOrderUpdateForm updateForm = new AdminOrderUpdateForm(_orderService, _bookService, _customerService, _orderItemService, order);
+                OrderUpdateForm updateForm = new OrderUpdateForm(_orderService, _bookService, _customerService, _orderItemService, order);
                 updateForm.ShowDialog();
                 dataGridViewOrders.ClearSelection();
                 LoadOrders();
@@ -227,5 +263,8 @@ namespace BookHaven_Bookstore_Management_System.View.Admin
         private ComboBox comDeliveryStatus;
         private ComboBox comPaymentStatus;
         private Button tbl_print;
+        private Label label3;
+        private Label label2;
+        private Label label1;
     }
 }

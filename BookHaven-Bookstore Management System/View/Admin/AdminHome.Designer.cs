@@ -31,8 +31,11 @@
             panel1 = new Panel();
             staffPanelInject = new Panel();
             flowLayoutPanel1 = new FlowLayoutPanel();
-            panel3 = new Panel();
             button1 = new Button();
+            button7 = new Button();
+            button5 = new Button();
+            panel3 = new Panel();
+            button6 = new Button();
             button2 = new Button();
             button3 = new Button();
             button4 = new Button();
@@ -40,7 +43,6 @@
             button11 = new Button();
             panel2 = new Panel();
             label1 = new Label();
-            button5 = new Button();
             panel1.SuspendLayout();
             flowLayoutPanel1.SuspendLayout();
             panel3.SuspendLayout();
@@ -68,6 +70,7 @@
             // 
             flowLayoutPanel1.BackColor = SystemColors.Menu;
             flowLayoutPanel1.Controls.Add(button1);
+            flowLayoutPanel1.Controls.Add(button7);
             flowLayoutPanel1.Controls.Add(button5);
             flowLayoutPanel1.Controls.Add(panel3);
             flowLayoutPanel1.Controls.Add(button3);
@@ -79,14 +82,6 @@
             flowLayoutPanel1.Size = new Size(200, 484);
             flowLayoutPanel1.TabIndex = 0;
             // 
-            // panel3
-            // 
-            panel3.Controls.Add(button2);
-            panel3.Location = new Point(3, 85);
-            panel3.Name = "panel3";
-            panel3.Size = new Size(197, 41);
-            panel3.TabIndex = 1;
-            // 
             // button1
             // 
             button1.Font = new Font("Segoe UI", 13F, FontStyle.Bold);
@@ -97,6 +92,48 @@
             button1.Text = "Dashboard";
             button1.UseVisualStyleBackColor = true;
             button1.Click += button1_Click;
+            // 
+            // button7
+            // 
+            button7.Font = new Font("Segoe UI", 13F, FontStyle.Bold);
+            button7.Location = new Point(3, 44);
+            button7.Name = "button7";
+            button7.Size = new Size(194, 35);
+            button7.TabIndex = 3;
+            button7.Text = "Reports";
+            button7.UseVisualStyleBackColor = true;
+            button7.Click += button7_Click;
+            // 
+            // button5
+            // 
+            button5.Font = new Font("Segoe UI", 13F, FontStyle.Bold);
+            button5.Location = new Point(3, 85);
+            button5.Name = "button5";
+            button5.Size = new Size(194, 35);
+            button5.TabIndex = 11;
+            button5.Text = "User Management";
+            button5.UseVisualStyleBackColor = true;
+            button5.Click += button5_Click_1;
+            // 
+            // panel3
+            // 
+            panel3.Controls.Add(button6);
+            panel3.Controls.Add(button2);
+            panel3.Location = new Point(3, 126);
+            panel3.Name = "panel3";
+            panel3.Size = new Size(197, 41);
+            panel3.TabIndex = 1;
+            // 
+            // button6
+            // 
+            button6.Font = new Font("Segoe UI", 13F, FontStyle.Bold);
+            button6.Location = new Point(1, 3);
+            button6.Name = "button6";
+            button6.Size = new Size(194, 35);
+            button6.TabIndex = 2;
+            button6.Text = "Orders";
+            button6.UseVisualStyleBackColor = true;
+            button6.Click += button6_Click;
             // 
             // button2
             // 
@@ -112,7 +149,7 @@
             // button3
             // 
             button3.Font = new Font("Segoe UI", 13F, FontStyle.Bold);
-            button3.Location = new Point(3, 132);
+            button3.Location = new Point(3, 173);
             button3.Name = "button3";
             button3.Size = new Size(194, 35);
             button3.TabIndex = 2;
@@ -123,7 +160,7 @@
             // button4
             // 
             button4.Font = new Font("Segoe UI", 13F, FontStyle.Bold);
-            button4.Location = new Point(3, 173);
+            button4.Location = new Point(3, 214);
             button4.Name = "button4";
             button4.Size = new Size(194, 35);
             button4.TabIndex = 3;
@@ -134,7 +171,7 @@
             // button10
             // 
             button10.Font = new Font("Segoe UI", 13F, FontStyle.Bold);
-            button10.Location = new Point(3, 214);
+            button10.Location = new Point(3, 255);
             button10.Name = "button10";
             button10.Size = new Size(194, 35);
             button10.TabIndex = 9;
@@ -145,7 +182,7 @@
             // button11
             // 
             button11.Font = new Font("Segoe UI", 13F, FontStyle.Bold);
-            button11.Location = new Point(3, 255);
+            button11.Location = new Point(3, 296);
             button11.Name = "button11";
             button11.Size = new Size(194, 35);
             button11.TabIndex = 10;
@@ -170,17 +207,6 @@
             label1.Size = new Size(202, 28);
             label1.TabIndex = 0;
             label1.Text = "BookHaven - Admin";
-            // 
-            // button5
-            // 
-            button5.Font = new Font("Segoe UI", 13F, FontStyle.Bold);
-            button5.Location = new Point(3, 44);
-            button5.Name = "button5";
-            button5.Size = new Size(194, 35);
-            button5.TabIndex = 11;
-            button5.Text = "User Management";
-            button5.UseVisualStyleBackColor = true;
-            button5.Click += button5_Click_1;
             // 
             // AdminHome
             // 
@@ -215,5 +241,7 @@
         private Button button11;
         private Panel staffPanelInject;
         private Button button5;
+        private Button button7;
+        private Button button6;
     }
 }

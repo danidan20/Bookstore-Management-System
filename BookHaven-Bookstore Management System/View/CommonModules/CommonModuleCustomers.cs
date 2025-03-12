@@ -10,6 +10,9 @@ using System.Windows.Forms;
 using BookHaven_Bookstore_Management_System.Domain;
 using BookHaven_Bookstore_Management_System.Repository.Interfaces;
 using BookHaven_Bookstore_Management_System.Services.interfaces;
+using iTextSharp.text;
+using iTextSharp.text.pdf;
+using System.IO;
 
 namespace BookHaven_Bookstore_Management_System.View.CommonModules
 {
@@ -284,6 +287,58 @@ namespace BookHaven_Bookstore_Management_System.View.CommonModules
         private void btn_clear_Click(object sender, EventArgs e)
         {
             ClearTextBoxes();
+        }
+
+        private void print_Customers_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                SaveFileDialog saveFileDialog = new SaveFileDialog();
+                saveFileDialog.Filter = "PDF files (*.pdf)|*.pdf|All files (*.*)|*.*";
+                saveFileDialog.Title = "Save Customers to PDF";
+                saveFileDialog.FileName = "Customers.pdf";
+
+                if (saveFileDialog.ShowDialog() == DialogResult.OK)
+                {
+                    Document doc = new Document();
+                    PdfWriter.GetInstance(doc, new FileStream(saveFileDialog.FileName, FileMode.Create));
+                    doc.Open();
+
+                    PdfPTable pdfTable = new PdfPTable(customer_table.Columns.Count);
+                    pdfTable.WidthPercentage = 100;
+
+                    foreach (DataGridViewColumn column in customer_table.Columns)
+                    {
+                        PdfPCell cell = new PdfPCell(new Phrase(column.HeaderText));
+                        pdfTable.AddCell(cell);
+                    }
+
+                    
+                    foreach (DataGridViewRow row in customer_table.Rows)
+                    {
+                        foreach (DataGridViewCell cell in row.Cells)
+                        {
+                            if (cell.Value != null)
+                            {
+                                pdfTable.AddCell(cell.Value.ToString());
+                            }
+                            else
+                            {
+                                pdfTable.AddCell("");
+                            }
+                        }
+                    }
+
+                    doc.Add(pdfTable);
+                    doc.Close();
+
+                    MessageBox.Show("Customers exported to PDF successfully.", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Error exporting customers to PDF: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
     }
 }

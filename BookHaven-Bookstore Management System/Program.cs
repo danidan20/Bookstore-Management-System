@@ -57,18 +57,18 @@ namespace BookHaven_Bookstore_Management_System
                     services.AddTransient<StaffHome>();
                     services.AddTransient<CommonModuleBook>();
                     services.AddTransient<Pos>();
-                    services.AddTransient<StaffOrders>();
+                    services.AddTransient<Orders>();
 
                     services.AddTransient<AdminHome>();
-                    services.AddTransient<AdminOrders>();
-                    services.AddTransient<AdminOrderUpdateForm>();
                     services.AddTransient< SupplierManagementForm > ();
                     services.AddTransient<SupplierOrdersViewForm>();
                     services.AddTransient<UpdateOrderDetailsForm>();
                     services.AddTransient<StoreAdminDashboard> ();
                     services.AddTransient<AdminDashboard>();
                     services.AddTransient<UserManagementForm>();
-                    
+                    services.AddTransient<ReportingAnalyticsForm>(); 
+
+
 
                     services.AddTransient<StoreAdminHome>();
                     services.AddTransient<Login>();

@@ -9,9 +9,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Windows.Forms;
 
-namespace BookHaven_Bookstore_Management_System.View.Staff
+namespace BookHaven_Bookstore_Management_System.View.CommonModules
 {
-    public partial class StaffOrders : Form
+    public partial class Orders : Form
     {
         private readonly IOrderService _orderService;
         private readonly ICustomerService _customerService;
@@ -19,7 +19,7 @@ namespace BookHaven_Bookstore_Management_System.View.Staff
         private readonly IOrderItemService _orderItemService;
         private List<Order> _allOrders;
 
-        public StaffOrders(IOrderItemService orderItemService, IOrderService orderService, IBookService bookService, ICustomerService customerService)
+        public Orders(IOrderItemService orderItemService, IOrderService orderService, IBookService bookService, ICustomerService customerService)
         {
             InitializeComponent();
             _orderService = orderService;

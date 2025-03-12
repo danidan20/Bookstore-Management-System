@@ -8,7 +8,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Windows.Forms;
 
-namespace BookHaven_Bookstore_Management_System.View.Staff
+namespace BookHaven_Bookstore_Management_System.View.CommonModules
 {
     public partial class OrderUpdateForm : Form
     {

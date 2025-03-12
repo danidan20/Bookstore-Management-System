@@ -30,6 +30,7 @@
         {
             panel1 = new Panel();
             panel4 = new Panel();
+            label6 = new Label();
             cus_search_key = new TextBox();
             cus_search = new Button();
             panel3 = new Panel();
@@ -49,7 +50,7 @@
             cus_delete = new Button();
             cus_update = new Button();
             cus_save = new Button();
-            label6 = new Label();
+            print_Customers = new Button();
             panel1.SuspendLayout();
             panel4.SuspendLayout();
             panel3.SuspendLayout();
@@ -77,6 +78,16 @@
             panel4.Name = "panel4";
             panel4.Size = new Size(436, 37);
             panel4.TabIndex = 3;
+            // 
+            // label6
+            // 
+            label6.AutoSize = true;
+            label6.Font = new Font("Segoe UI", 12F, FontStyle.Bold);
+            label6.Location = new Point(1, 7);
+            label6.Name = "label6";
+            label6.Size = new Size(140, 21);
+            label6.TabIndex = 7;
+            label6.Text = "Customer Details";
             // 
             // cus_search_key
             // 
@@ -116,6 +127,7 @@
             // panel2
             // 
             panel2.BackColor = SystemColors.ButtonShadow;
+            panel2.Controls.Add(print_Customers);
             panel2.Controls.Add(btn_clear);
             panel2.Controls.Add(cust_phonenumber);
             panel2.Controls.Add(label5);
@@ -138,7 +150,7 @@
             // btn_clear
             // 
             btn_clear.Font = new Font("Segoe UI", 10F, FontStyle.Bold);
-            btn_clear.Location = new Point(7, 389);
+            btn_clear.Location = new Point(7, 353);
             btn_clear.Name = "btn_clear";
             btn_clear.Size = new Size(285, 31);
             btn_clear.TabIndex = 16;
@@ -236,7 +248,7 @@
             cus_delete.BackColor = SystemColors.MenuText;
             cus_delete.Font = new Font("Segoe UI", 10F, FontStyle.Bold);
             cus_delete.ForeColor = SystemColors.ButtonFace;
-            cus_delete.Location = new Point(199, 352);
+            cus_delete.Location = new Point(199, 316);
             cus_delete.Name = "cus_delete";
             cus_delete.Size = new Size(93, 31);
             cus_delete.TabIndex = 5;
@@ -247,7 +259,7 @@
             // cus_update
             // 
             cus_update.Font = new Font("Segoe UI", 10F, FontStyle.Bold);
-            cus_update.Location = new Point(104, 352);
+            cus_update.Location = new Point(104, 316);
             cus_update.Name = "cus_update";
             cus_update.Size = new Size(90, 31);
             cus_update.TabIndex = 3;
@@ -258,7 +270,7 @@
             // cus_save
             // 
             cus_save.Font = new Font("Segoe UI", 10F, FontStyle.Bold);
-            cus_save.Location = new Point(7, 352);
+            cus_save.Location = new Point(7, 316);
             cus_save.Name = "cus_save";
             cus_save.Size = new Size(93, 31);
             cus_save.TabIndex = 4;
@@ -266,23 +278,24 @@
             cus_save.UseVisualStyleBackColor = true;
             cus_save.Click += cus_save_Click;
             // 
-            // label6
+            // print_Customers
             // 
-            label6.AutoSize = true;
-            label6.Font = new Font("Segoe UI", 12F, FontStyle.Bold);
-            label6.Location = new Point(1, 7);
-            label6.Name = "label6";
-            label6.Size = new Size(140, 21);
-            label6.TabIndex = 7;
-            label6.Text = "Customer Details";
+            print_Customers.Font = new Font("Segoe UI", 10F, FontStyle.Bold);
+            print_Customers.Location = new Point(7, 390);
+            print_Customers.Name = "print_Customers";
+            print_Customers.Size = new Size(285, 31);
+            print_Customers.TabIndex = 17;
+            print_Customers.Text = "Print Customers";
+            print_Customers.UseVisualStyleBackColor = true;
+            print_Customers.Click += print_Customers_Click;
             // 
-            // StaffCustomers
+            // CommonModuleCustomers
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(790, 450);
             Controls.Add(panel1);
-            Name = "StaffCustomers";
+            Name = "CommonModuleCustomers";
             Text = "StaffCustomers";
             Load += StaffCustomers_Load;
             panel1.ResumeLayout(false);
@@ -320,5 +333,6 @@
         private TextBox cust_phonenumber;
         private Button btn_clear;
         private Label label6;
+        private Button print_Customers;
     }
 }

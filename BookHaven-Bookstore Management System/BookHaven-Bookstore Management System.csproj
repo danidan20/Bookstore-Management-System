@@ -10,6 +10,7 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="iTextSharp" Version="5.5.13.4" />
     <PackageReference Include="Microsoft.EntityFrameworkCore" Version="9.0.2" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="9.0.2" />
     <PackageReference Include="Microsoft.Extensions.Configuration" Version="9.0.2" />
@@ -23,13 +24,13 @@
     <Compile Update="View\CommonModules\CommonModuleCustomers.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Update="View\Admin\AdminOrders.cs">
+    <Compile Update="View\CommonModules\OrderUpdateForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Update="View\Admin\AdminOrderUpdateForm.cs">
+    <Compile Update="View\CommonModules\Pos.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Update="View\Staff\OrderUpdateForm.cs">
+    <Compile Update="View\CommonModules\Orders.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Update="View\StoreAdmin\StoreAdminHome.cs">

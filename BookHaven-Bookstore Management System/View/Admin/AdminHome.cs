@@ -23,9 +23,10 @@ namespace BookHaven_Bookstore_Management_System.View.Admin
         private SupplierManagementForm _supplierManagement;
         private CommonModuleCustomers _customers;
         private CommonModuleBook _inventory;
-        private AdminOrders _order;
         private AdminDashboard _dashboard;
         private UserManagementForm _userManagement;
+        private ReportingAnalyticsForm _reportAnalytics;
+        private Orders _orders;
 
         private readonly IServiceProvider _serviceProvider;
         public AdminHome(ICustomerService customerService, IServiceProvider serviceProvider)
@@ -74,8 +75,8 @@ namespace BookHaven_Bookstore_Management_System.View.Admin
 
         private void button2_Click(object sender, EventArgs e)
         {
-            _order = _serviceProvider.GetRequiredService<AdminOrders>();
-            LoadChildForm(_order);
+            _orders = _serviceProvider.GetRequiredService<Orders>();
+            LoadChildForm(_orders);
         }
 
         private void button11_Click(object sender, EventArgs e)
@@ -96,6 +97,18 @@ namespace BookHaven_Bookstore_Management_System.View.Admin
         {
             _userManagement = _serviceProvider.GetRequiredService<UserManagementForm>();
             LoadChildForm(_userManagement);
+        }
+
+        private void button7_Click(object sender, EventArgs e)
+        {
+            _reportAnalytics = _serviceProvider.GetRequiredService<ReportingAnalyticsForm>();
+            LoadChildForm(_reportAnalytics);
+        }
+
+        private void button6_Click(object sender, EventArgs e)
+        {
+            _orders = _serviceProvider.GetRequiredService<Orders>();
+            LoadChildForm(_orders);
         }
     }
 }

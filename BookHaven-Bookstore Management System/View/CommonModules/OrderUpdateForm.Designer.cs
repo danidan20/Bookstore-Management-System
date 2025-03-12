@@ -1,4 +1,4 @@
-﻿namespace BookHaven_Bookstore_Management_System.View.Staff
+﻿namespace BookHaven_Bookstore_Management_System.View.CommonModules
 {
     partial class OrderUpdateForm
     {

@@ -22,7 +22,7 @@ namespace BookHaven_Bookstore_Management_System.View.Staff
         private StaffDashboard _dashboard;
         private CommonModuleCustomers _customers;
         private CommonModuleBook _inventory;
-        private StaffOrders _order;
+        private Orders _order;
         private Pos _pos;
 
         private readonly IServiceProvider _serviceProvider;
@@ -75,7 +75,7 @@ namespace BookHaven_Bookstore_Management_System.View.Staff
 
         private void button2_Click(object sender, EventArgs e)
         {
-            _order = _serviceProvider.GetRequiredService<StaffOrders>();
+            _order = _serviceProvider.GetRequiredService<Orders>();
             LoadChildForm(_order);
         }
 
